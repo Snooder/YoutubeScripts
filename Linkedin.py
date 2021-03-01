@@ -8,7 +8,7 @@ import random
 
 
 def readconnectionfile():
-    connfile = open("instaaccounts.txt",'r')
+    connfile = open("linkedinaccounts.txt",'r')
     connections = []
     accounts = connfile.read().split("\n")
     for x in range(0,len(accounts)-1):
@@ -21,13 +21,15 @@ def readconnectionfile():
 #The 0 and 1 are used to identify if I had already messaged.
 #Sometimes the bot will lag behind and need to restart
 def writeconnectionfile(connections):
-    connfile = open("instaaccounts.txt",'w')
+    connfile = open("linkedinaccounts.txt",'w')
     for i in connections:
         connfile.write(i + " 0\n")
 
+#This is to keep a record of who you talked to already
 def writeaccountsfile(account):
-    connfile = open("instaaccountsmessaged.txt",'w')
+    connfile = open("linkedinaccountsmessaged.txt",'w')
     connfile.write(account + " 1\n")
+
 
 def sendsolicitation(connections):
     for x in range(0, len(connections)-1):
